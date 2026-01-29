@@ -88,10 +88,10 @@ function Contact() {
             and inspiring content from our youth ministry.
           </p>
           <div className="social-links">
-            <a href="#" className="social-item" aria-label="Visit our Facebook page">Facebook</a>
-            <a href="#" className="social-item" aria-label="Visit our Instagram page">Instagram</a>
-            <a href="#" className="social-item" aria-label="Visit our YouTube channel">YouTube</a>
-            <a href="#" className="social-item" aria-label="Visit our Twitter page">Twitter</a>
+            <a href="https://facebook.com" className="social-item" aria-label="Visit our Facebook page" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com" className="social-item" aria-label="Visit our Instagram page" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://youtube.com" className="social-item" aria-label="Visit our YouTube channel" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://twitter.com" className="social-item" aria-label="Visit our Twitter page" target="_blank" rel="noopener noreferrer">Twitter</a>
           </div>
         </section>
       </div>
