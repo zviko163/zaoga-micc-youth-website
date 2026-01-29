@@ -1,0 +1,135 @@
+.events {
+  min-height: 100vh;
+}
+
+.events-section {
+  padding: 4rem 2rem;
+}
+
+.events-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.event-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+}
+
+.event-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.event-details {
+  padding: 1.5rem;
+}
+
+.event-date,
+.event-time {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.event-description {
+  color: #555;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.calendar-info {
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.calendar-info h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-info > p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.info-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.info-box h3 {
+  color: #667eea;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-box li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+}
+
+.info-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .events-section h2,
+  .calendar-info h2 {
+    font-size: 2rem;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-header h3 {
+    font-size: 1.3rem;
+  }
+}
