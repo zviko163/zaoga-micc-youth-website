@@ -40,8 +40,8 @@ function Events() {
         <section className="events-section">
           <h2>Upcoming Events</h2>
           <div className="events-grid">
-            {upcomingEvents.map((event, index) => (
-              <div key={index} className="event-card">
+            {upcomingEvents.map((event) => (
+              <div key={event.title} className="event-card">
                 <div className="event-header">
                   <h3>{event.title}</h3>
                 </div>
