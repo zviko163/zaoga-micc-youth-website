@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar'
 // import Footer from './components/layout/Footer';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 // Import other pages as you create them...
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Home />} />
             {/* Add placeholders for now */}
             <Route path="/about" element={<div className="p-10">About Page</div>} />
             <Route path="/programs" element={<div className="p-10">Programs Page</div>} />
