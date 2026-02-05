@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Facebook, Instagram, Mail } from 'lucide-react';
 import youthLogo from '../../assets/icons/youth_logo.jpeg';
+import TikTokIcon from '../ui/Tiktok';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,7 @@ const Navbar = () => {
               <div className="flex space-x-3 pl-4 border-l border-white/20">
                  <Facebook size={12} className="cursor-pointer hover:text-blue-400 transition-colors"/>
                  <Instagram size={12} className="cursor-pointer hover:text-pink-400 transition-colors"/>
+                 <TikTokIcon size={12} className="cursor-pointer hover:text-black transition-colors"/>
               </div>
             </div>
           </div>
