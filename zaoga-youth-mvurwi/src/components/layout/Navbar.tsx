@@ -70,7 +70,7 @@ const Navbar = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-white tracking-wide leading-none text-lg group-hover:text-yellow-400 transition-colors">ZAOGA YOUTH</span>
-                <span className="text-[10px] text-yellow-500 font-extrabold tracking-[0.2em] uppercase mt-1">Mvurwi Region</span>
+                <span className="text-[10px] text-yellow-500 font-extrabold tracking-[0.2em] uppercase mt-1">Mvurwi District</span>
               </div>
             </Link>
 
