@@ -1,91 +1,123 @@
-import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Target, Flame, Globe } from 'lucide-react';
+import { Target, Flame, Globe, Sparkles } from 'lucide-react';
+
+// --- CONTINUOUS AMBIENT COMPONENT 1: FLOATING ORBS ---
+// These will slowly drift around the background infinitely
+const FloatingOrbs = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <motion.div
+      animate={{
+        y: [0, -40, 0],
+        x: [0, 30, 0],
+        scale: [1, 1.1, 1],
+        rotate: [0, 45, 0],
+      }}
+      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-primary/20 rounded-full blur-[100px]"
+    />
+    <motion.div
+      animate={{
+        y: [0, 50, 0],
+        x: [0, -40, 0],
+        scale: [1, 1.2, 1],
+      }}
+      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      className="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-yellow-400/10 rounded-full blur-[120px]"
+    />
+  </div>
+);
+
+// --- CONTINUOUS AMBIENT COMPONENT 2: INFINITE MARQUEE ---
+// A seamless scrolling text ribbon
+const InfiniteMarquee = () => {
+  const marqueeText = "FORWARD IN FAITH • PURITY • PURPOSE • POWER • HOLY SPIRIT • ";
+  
+  return (
+    <div className="w-full bg-brand-primary border-y border-yellow-500/30 overflow-hidden py-3 relative z-20 flex">
+      <motion.div
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
+        className="flex whitespace-nowrap"
+      >
+        {/* We duplicate the text multiple times so it loops seamlessly */}
+        <span className="text-yellow-400 font-bold tracking-[0.2em] text-sm md:text-base pr-4">
+            {marqueeText.repeat(10)}
+        </span>
+      </motion.div>
+    </div>
+  );
+};
 
 const About = () => {
-  // 1. Parallax Scroll Setup
   const { scrollY } = useScroll();
-  // As user scrolls from 0 to 500px, move the background image down by 150px
   const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
-  // Fade out the hero text as you scroll down
-  const textOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-
-  // 2. Staggered Animation Variants for the Cards
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Delays each child by 0.2s
-        delayChildren: 0.3,
-      },
-    },
-  };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    show: { 
-        opacity: 1, 
-        y: 0, 
-        scale: 1, 
-        transition: { type: 'spring', stiffness: 100, damping: 15 } 
-    },
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
   };
 
   return (
-    <div className="bg-brand-white min-h-screen overflow-hidden">
+    <div className="bg-brand-white min-h-screen relative">
       
-      {/* --- HERO SECTION WITH PARALLAX --- */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <motion.div 
-            style={{ y: backgroundY }}
-            className="absolute inset-0 z-0"
-        >
+      {/* Inject the living background */}
+      <FloatingOrbs />
+
+      {/* --- HERO SECTION --- */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073&auto=format&fit=crop" 
             alt="Youth Group" 
             className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/80 via-brand-primary/90 to-brand-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/90 via-brand-primary/80 to-brand-white"></div>
         </motion.div>
 
-        {/* Animated Text */}
-        <motion.div 
-            style={{ opacity: textOpacity }}
-            className="relative z-10 text-center px-4 max-w-3xl"
-        >
-          <motion.h1 
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-xl"
-          >
-            Our <span className="text-yellow-400">Story</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-xl text-gray-200 font-light"
-          >
-            Rooted in the vision of ZAOGA FIFMI, expanding the Kingdom in Mvurwi.
-          </motion.p>
-        </motion.div>
+        <div className="relative z-10 text-center px-4 max-w-3xl flex flex-col items-center">
+            {/* Continuous floating icon over the header */}
+            <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="mb-4 text-yellow-400 bg-white/10 p-3 rounded-full backdrop-blur-sm"
+            >
+                <Sparkles size={32} />
+            </motion.div>
+
+            <motion.h1 
+                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}
+                className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-xl"
+            >
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Story</span>
+            </motion.h1>
+            <motion.p 
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+                className="text-xl text-gray-200 font-light"
+            >
+                Rooted in the vision of ZAOGA FIFMI, expanding the Kingdom in Mvurwi.
+            </motion.p>
+        </div>
       </section>
 
-      {/* --- MISSION & VISION (STAGGERED CARDS) --- */}
-      <section className="relative z-20 -mt-20 px-4 pb-20 max-w-7xl mx-auto">
+      {/* Inject the infinite scrolling ribbon */}
+      <InfiniteMarquee />
+
+      {/* --- MISSION & VISION --- */}
+      <section className="relative z-20 pt-16 pb-20 px-4 max-w-7xl mx-auto">
         <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
+            initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }}
+            transition={{ staggerChildren: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {/* Mission Card */}
-          <motion.div variants={itemVariants} whileHover={{ y: -10 }} className="bg-white rounded-3xl p-10 shadow-2xl border-t-4 border-brand-secondary relative overflow-hidden group">
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-light rounded-full opacity-50 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
+          {/* Mission Card with Continuous Breathing Border Effect */}
+          <motion.div variants={itemVariants} className="relative group rounded-3xl p-10 bg-white shadow-2xl z-10 overflow-hidden">
+            {/* Continuous pulsing gradient in the background corner */}
+            <motion.div 
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-10 -top-10 w-40 h-40 bg-brand-light rounded-full z-0"
+            />
+            
             <Target className="w-16 h-16 text-brand-primary mb-6 relative z-10" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4 relative z-10">Our Mission</h2>
             <p className="text-gray-600 text-lg leading-relaxed relative z-10">
@@ -93,10 +125,16 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Vision Card */}
-          <motion.div variants={itemVariants} whileHover={{ y: -10 }} className="bg-brand-primary rounded-3xl p-10 shadow-2xl border-t-4 border-yellow-400 relative overflow-hidden group text-white">
-            <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-700 ease-out"></div>
-            <Flame className="w-16 h-16 text-yellow-400 mb-6 relative z-10" />
+          {/* Vision Card with Continuous Glow */}
+          <motion.div variants={itemVariants} className="relative group rounded-3xl p-10 bg-brand-primary text-white shadow-2xl z-10 overflow-hidden border border-yellow-500/30">
+            {/* Continuous spinning sunburst effect in the corner */}
+            <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -left-20 -bottom-20 w-64 h-64 border-[40px] border-dashed border-white/5 rounded-full z-0"
+            />
+            
+            <Flame className="w-16 h-16 text-yellow-400 mb-6 relative z-10 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]" />
             <h2 className="text-3xl font-bold mb-4 relative z-10">Our Vision</h2>
             <p className="text-gray-200 text-lg leading-relaxed relative z-10">
               To raise a dynamic, Holy Spirit-filled generation that excels in all areas of life—spiritually, academically, and economically—becoming a beacon of hope and leaders in our community.
@@ -106,22 +144,15 @@ const About = () => {
       </section>
 
       {/* --- WORLDWIDE CONNECTION SECTION --- */}
-      <section className="py-24 bg-brand-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16">
+      <section className="py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16 relative z-10">
             
-            {/* Sliding Image */}
-            <motion.div 
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', bounce: 0.2, duration: 1.5 }}
-                className="w-full md:w-1/2 relative"
-            >
-                {/* 3D-like floating image wrapper */}
+            <motion.div className="w-full md:w-1/2 relative">
+                {/* Continuous 3D levitation on the image */}
                 <motion.div 
-                    animate={{ y: [0, -15, 0] }} 
+                    animate={{ y: [0, -20, 0] }} 
                     transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                    className="relative z-10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(91,44,132,0.3)] border-4 border-white"
+                    className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
                 >
                     <img 
                         src="https://images.unsplash.com/photo-1494883759339-0b042055a4ee?q=80&w=1974&auto=format&fit=crop" 
@@ -129,20 +160,17 @@ const About = () => {
                         className="w-full h-auto"
                     />
                 </motion.div>
-                {/* Decorative background blob */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-light rounded-full mix-blend-multiply blur-3xl -z-10"></div>
             </motion.div>
 
-            {/* Staggered Text Reveal */}
             <motion.div 
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={containerVariants}
+                initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ staggerChildren: 0.2 }}
                 className="w-full md:w-1/2"
             >
                 <motion.div variants={itemVariants} className="flex items-center gap-3 mb-4">
-                    <Globe className="text-yellow-500 w-8 h-8" />
+                    {/* Continuous slow rotation on the globe icon */}
+                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+                        <Globe className="text-yellow-500 w-8 h-8" />
+                    </motion.div>
                     <h3 className="text-brand-primary font-bold uppercase tracking-widest">Part of Something Bigger</h3>
                 </motion.div>
                 
@@ -153,15 +181,9 @@ const About = () => {
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 mb-6 leading-relaxed">
                     ZAOGA FIFMI (Forward in Faith Ministries International) is a global ministry founded by the late Apostle Professor Ezekiel H. Guti. What started under a gum tree in Bindura, Zimbabwe, has spread to over 160 nations worldwide.
                 </motion.p>
-                
-                <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed border-l-4 border-yellow-500 pl-4 bg-brand-light/30 py-2">
-                    As the youth of Mvurwi, we carry this same DNA. We are bound by the Spirit of God to continue this legacy, preaching the gospel of Jesus Christ with power and demonstration.
-                </motion.p>
             </motion.div>
-
         </div>
       </section>
-
     </div>
   );
 };
