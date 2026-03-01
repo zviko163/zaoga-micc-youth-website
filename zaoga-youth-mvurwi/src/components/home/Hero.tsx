@@ -24,7 +24,7 @@ const Hero = () => {
         {/* Delay 0.3s */}
         <FadeIn delay={0.3} direction="up">
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
-            Go Ye Therefore <br/>
+            Go Ye Therefore... <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">
               (Matt 28:19)
             </span>

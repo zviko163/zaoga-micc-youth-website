@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
+import Footer from './components/layout/Footer';
+import Gallery from './pages/Gallery';
 
 function App() {
   return (
@@ -29,17 +31,14 @@ function App() {
               element={<div className="flex items-center justify-center h-screen text-2xl font-bold text-brand-primary">Events Page Coming Soon...</div>} 
             />
             <Route 
-              path="/gallery" 
-              element={<div className="flex items-center justify-center h-screen text-2xl font-bold text-brand-primary">Gallery Coming Soon...</div>} 
-            />
-            <Route 
               path="/contact" 
               element={<div className="flex items-center justify-center h-screen text-2xl font-bold text-brand-primary">Contact Page Coming Soon...</div>} 
             />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </main>
         
-        {/* Later, we can add a <Footer /> component down here */}
+        <Footer />
         
       </div>
     </Router>

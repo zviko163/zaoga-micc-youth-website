@@ -1,7 +1,7 @@
 import Hero from '../components/home/Hero';
 import Pillars from '../components/home/Pillars';
 import WelcomeSection from '../components/home/WelcomeSection';
-import CallToAction from '../components/home/CallToAction';
+import WeeklyGatherings from '../components/home/WeeklyGatherings';
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <Hero />
       <Pillars />
       <WelcomeSection />
-      <CallToAction />
+      <WeeklyGatherings />
     </div>
   );
 };

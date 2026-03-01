@@ -155,7 +155,7 @@ const About = () => {
                     className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
                 >
                     <img 
-                        src="https://images.unsplash.com/photo-1494883759339-0b042055a4ee?q=80&w=1974&auto=format&fit=crop" 
+                        src="images/justicemic.jpg" 
                         alt="Global Connection" 
                         className="w-full h-auto"
                     />
