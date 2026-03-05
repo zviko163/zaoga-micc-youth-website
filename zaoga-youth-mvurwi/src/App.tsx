@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Footer from './components/layout/Footer';
 import Gallery from './pages/Gallery';
+import Programs from './pages/Programs';
+import Events from './pages/Events';
 
 function App() {
   return (
@@ -21,14 +23,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             
-            {/* Temporary placeholders for pages we will build next */}
-            <Route 
-              path="/programs" 
-              element={<div className="flex items-center justify-center h-screen text-2xl font-bold text-brand-primary">Programs Page Coming Soon...</div>} 
-            />
+            <Route path="/programs" element={<Programs />} />
             <Route 
               path="/events" 
-              element={<div className="flex items-center justify-center h-screen text-2xl font-bold text-brand-primary">Events Page Coming Soon...</div>} 
+              element={<Events />} 
             />
             <Route 
               path="/contact" 
