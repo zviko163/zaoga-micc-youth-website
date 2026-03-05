@@ -21,6 +21,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Leadership', path: '/who-we-are' },
     { name: 'Programs', path: '/programs' },
     { name: 'Events', path: '/events' },
     { name: 'Gallery', path: '/gallery' },
@@ -35,7 +36,7 @@ const Navbar = () => {
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <span className="hidden sm:inline tracking-wider">Forward In Faith Ministries International — Mvurwi</span>
             <div className="flex space-x-6 items-center ml-auto sm:ml-0">
-              <a href="#" className="hover:text-yellow-400 flex items-center gap-1.5 transition-colors"><Phone size={12}/> +263 77 123 4567</a>
+              <a href="#" className="hover:text-yellow-400 flex items-center gap-1.5 transition-colors"><Phone size={12}/> 0784436503</a>
               <a href="#" className="hover:text-yellow-400 flex items-center gap-1.5 transition-colors"><Mail size={12}/> youth@zaogamvurwi.org</a>
               <div className="flex space-x-3 pl-4 border-l border-white/20">
                  <Facebook size={12} className="cursor-pointer hover:text-blue-400 transition-colors"/>

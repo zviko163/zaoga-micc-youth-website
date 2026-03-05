@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import Gallery from './pages/Gallery';
 import Programs from './pages/Programs';
 import Events from './pages/Events';
+import WhoWeAre from './pages/WhoAreWe';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             {/* The actual pages we have built */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            
+            <Route path="/who-we-are" element={<WhoWeAre />} />
             <Route path="/programs" element={<Programs />} />
             <Route 
               path="/events" 
