@@ -32,7 +32,7 @@ const About = () => {
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
   };

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ShieldCheck, Zap, Briefcase } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
 
