@@ -20,11 +20,11 @@ const WeeklyGatherings = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           
-          {/* Friday Service Card */}
+          {/* Saturdays Service Card */}
           <FadeIn direction="right" className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-bold text-yellow-400">Youth Fellowship</h3>
-              <span className="bg-yellow-500 text-brand-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Fridays</span>
+              <span className="bg-yellow-500 text-brand-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Saturdays</span>
             </div>
             <p className="text-gray-200 mb-6">
               Our main youth gathering. Expect explosive praise and worship, deeply relevant teachings, and time to connect with friends.

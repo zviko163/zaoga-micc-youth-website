@@ -12,7 +12,7 @@ const Pillars = () => {
                     <Users size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">Fellowship</h3>
-                <p className="text-gray-600">Join a community where you belong. We grow stronger when we stand together in faith and friendship.</p>
+                <p className="text-gray-600">In ZAOGA FIFMI at MICC, you belong. We grow stronger when we stand together in faith.</p>
             </div>
           </FadeIn>
 
@@ -32,7 +32,7 @@ const Pillars = () => {
                     <Calendar size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">Events</h3>
-                <p className="text-gray-600">From youth retreats to music concerts, stay updated with what's happening in Mvurwi.</p>
+                <p className="text-gray-600">Youth retreats, services, fellowships,stay updated with what's happening at MICC.</p>
             </div>
           </FadeIn>
 

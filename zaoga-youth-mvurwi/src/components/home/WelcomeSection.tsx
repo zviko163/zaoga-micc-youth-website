@@ -26,14 +26,14 @@ const WelcomeSection = () => {
               {/* Text Content */}
               <div className="w-full md:w-1/2">
                   <h2 className="text-brand-primary font-bold text-sm uppercase tracking-widest mb-2">Who We Are</h2>
-                  <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Building a Generation of Impact</h2>
+                  <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Letting Youth Lead</h2>
                   <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                      The ZAOGA FIFMI Youth Ministry in Mvurwi is more than just a meeting; it's a movement. 
+                      The ZAOGA FIFMI Youth Ministry at MICC, we walk in the visionary's footsteps, Ezekiel H. Guti.
                       We are dedicated to raising young people who are spiritually grounded, socially responsible, 
                       and economically empowered.
                   </p>
                   <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                      Whether you are new to faith or looking for a place to grow, there is a seat for you here.
+                      We continue to practice the legacy. There is a seat for you here.
                   </p>
                   
                   <Link to="/about" className="text-brand-primary font-bold hover:text-brand-secondary inline-flex items-center">

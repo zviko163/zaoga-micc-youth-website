@@ -3,10 +3,10 @@ import { Target, Flame, Globe, Sparkles, Music, Camera, HeartHandshake, ShieldCh
 
 // --- DATA: DEPARTMENTS ONLY ---
 const departmentsData = [
-  { name: "Praise & Worship", icon: <Music />, bio: "Leading the youth in explosive, Spirit-filled worship encounters.", image: "/images/worship-dept.jpg" },
-  { name: "Bandsman", icon: <Sparkles />, bio: "The heartbeat of our services, playing with excellence and anointing.", image: "/images/bandsman-dept.jpg" },
-  { name: "Media & Tech", icon: <Camera />, bio: "Capturing memories and broadcasting the gospel through the digital lens.", image: "/images/media-dept.jpg" },
-  { name: "Hosting", icon: <HeartHandshake />, bio: "The first smiles you see. Creating a warm, welcoming environment for all visitors.", image: "/images/hosting-dept.jpg" },
+  { name: "Praise & Worship", icon: <Music />, bio: "Leading the youth in explosive, Spirit-filled worship encounters.", image: "/images/praise162541.jpg" },
+  { name: "Bandsman", icon: <Sparkles />, bio: "The heartbeat of our services, playing with excellence and anointing.", image: "/images/bandsman.jpg" },
+  { name: "Media & Tech", icon: <Camera />, bio: "Capturing memories and broadcasting the gospel through the digital lens.", image: "/images/media.jpg" },
+  { name: "Hosting", icon: <HeartHandshake />, bio: "The first smiles you see. Creating a warm, welcoming environment for all visitors.", image: "/images/hosting1.jpg" },
   { name: "Ushering", icon: <ShieldCheck />, bio: "Maintaining order, serving the congregation, and ensuring services run smoothly.", image: "/images/ushering-dept.jpg" },
 ];
 
@@ -18,7 +18,7 @@ const FloatingOrbs = () => (
 );
 
 const InfiniteMarquee = () => {
-  const marqueeText = "FORWARD IN FAITH • PURITY • PURPOSE • POWER • HOLY SPIRIT • ";
+  const marqueeText = "FORWARD IN FAITH • FEAR NOT • SIN NOT • LEGACY • HOLY SPIRIT • ";
   return (
     <div className="w-full bg-brand-primary border-y border-yellow-500/30 overflow-hidden py-3 relative z-20 flex">
       <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, ease: "linear", duration: 15 }} className="flex whitespace-nowrap">
@@ -56,7 +56,7 @@ const About = () => {
                 Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Story</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="text-xl text-gray-200 font-light">
-                Rooted in the vision of ZAOGA FIFMI, expanding the Kingdom in Mvurwi.
+                 Legacy is Personal. Legacy is spiritual. Legacy is Practical.
             </motion.p>
         </div>
       </section>
@@ -69,13 +69,13 @@ const About = () => {
           <motion.div variants={itemVariants} className="relative group rounded-3xl p-10 bg-white shadow-2xl z-10 overflow-hidden">
             <Target className="w-16 h-16 text-brand-primary mb-6 relative z-10" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4 relative z-10">Our Mission</h2>
-            <p className="text-gray-600 text-lg leading-relaxed relative z-10">To preach the unadulterated Word of God to the youth of Mvurwi, winning souls for Jesus Christ, and nurturing them to be faithful disciples who live a holy, righteous, and purposeful life.</p>
+            <p className="text-gray-600 text-lg leading-relaxed relative z-10">To preach the unadulterated Word of God, winning souls for Jesus Christ, and nurturing them to be faithful disciples who live a holy, righteous, and purposeful life.</p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="relative group rounded-3xl p-10 bg-brand-primary text-white shadow-2xl z-10 overflow-hidden border border-yellow-500/30">
             <Flame className="w-16 h-16 text-yellow-400 mb-6 relative z-10 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]" />
             <h2 className="text-3xl font-bold mb-4 relative z-10">Our Vision</h2>
-            <p className="text-gray-200 text-lg leading-relaxed relative z-10">To raise a dynamic, Holy Spirit-filled generation that excels in all areas of life—spiritually, academically, and economically—becoming a beacon of hope and leaders in our community.</p>
+            <p className="text-gray-200 text-lg leading-relaxed relative z-10">To raise a dynamic, Holy Spirit-filled generation that excels in all areas of life—spiritually, academically, and economically—becoming a beacon of hope and leaders of tomorrow.</p>
           </motion.div>
         </motion.div>
       </section>
@@ -112,17 +112,24 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {departmentsData.map((dept, idx) => (
-              <div key={idx} className="group relative bg-white/10 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-yellow-400/50 transition-colors h-72">
-                <div className="absolute inset-0 z-0">
-                  <img src={dept.image} alt={dept.name} className="w-full h-full object-cover opacity-40 group-hover:opacity-20 transition-opacity duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/80 to-transparent"></div>
+              <div key={idx} className="group relative bg-brand-primary/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-yellow-400/50 transition-colors h-72">
+                <div className="absolute inset-0 z-0 bg-black">
+                  {/* FIX: object-center ensures heads aren't cut off. opacity-80 going to 100 makes it bright! */}
+                  <img 
+                    src={dept.image} 
+                    alt={dept.name} 
+                    className="w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" 
+                  />
+                  {/* FIX: Gradient is now much lighter in the middle so the picture shines through */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/95 via-brand-primary/40 to-transparent group-hover:from-brand-primary/90 group-hover:via-transparent transition-colors duration-500"></div>
                 </div>
+                
                 <div className="relative z-10 p-8 h-full flex flex-col justify-end transform group-hover:-translate-y-4 transition-transform duration-500">
                   <div className="w-12 h-12 bg-yellow-500 text-brand-primary rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     {dept.icon}
                   </div>
-                  <h4 className="text-2xl font-bold mb-2 text-white">{dept.name}</h4>
-                  <p className="text-gray-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <h4 className="text-2xl font-bold mb-2 text-white drop-shadow-md">{dept.name}</h4>
+                  <p className="text-gray-200 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 drop-shadow-md">
                     {dept.bio}
                   </p>
                 </div>

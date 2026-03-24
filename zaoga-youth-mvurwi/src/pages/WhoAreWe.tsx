@@ -4,7 +4,7 @@ import { FadeIn } from '../components/ui/FadeIn';
 
 // --- LEADERSHIP DATA ---
 const pastors = [
-  { role: "District Pastors", name: "Pastor & Mrs. [Name]", image: "/images/pastors.jpg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
+  { role: "District Pastors", name: "Pastor & Mrs. Muzereni", image: "/images/pastors.jpg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
 ];
 
 const advisers = [

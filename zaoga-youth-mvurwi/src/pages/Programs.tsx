@@ -1,10 +1,27 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, Mic2, Globe2, UtensilsCrossed, ArrowRight } from 'lucide-react';
 import { FadeIn } from '../components/ui/FadeIn';
 import { Link } from 'react-router-dom';
 
+// --- MAGIC AUTO-FETCHERS ---
+// 1. Sports (soccer)
+const soccerImageModules = import.meta.glob('/public/images/soccer*.{png,jpg,jpeg,JPG,JPEG,PNG}', { eager: true, as: 'url' });
+const soccerImages = Object.values(soccerImageModules) as string[];
+
+// 2. Praise & Worship
+const praiseImageModules = import.meta.glob('/public/images/praise*.{png,jpg,jpeg,JPG,JPEG,PNG}', { eager: true, as: 'url' });
+const praiseImages = Object.values(praiseImageModules) as string[];
+
+// 3. Evangelism & Missions
+const evangelismImageModules = import.meta.glob('/public/images/evangelism*.{png,jpg,jpeg,JPG,JPEG,PNG}', { eager: true, as: 'url' });
+const evangelismImages = Object.values(evangelismImageModules) as string[];
+
+// 4. Community & Fellowship
+const fellowshipImageModules = import.meta.glob('/public/images/fellowship*.{png,jpg,jpeg,JPG,JPEG,PNG}', { eager: true, as: 'url' });
+const fellowshipImages = Object.values(fellowshipImageModules) as string[];
+
 // --- PROGRAM DATA ---
-// Grouping your specific activities into distinct ministry branches
 const programsData = [
   {
     id: 1,
@@ -12,9 +29,10 @@ const programsData = [
     subtitle: "Sunday Matchdays",
     description: "Faith and fitness go hand in hand! After an explosive Sunday service, we hit the field. Join our MICC Youth football team as we clash in friendly, highly-spirited matches against local teams like Golly's and Megasave. It's all about teamwork, health, and representing Christ on the pitch.",
     icon: <Trophy size={28} />,
-    image: "https://images.unsplash.com/photo-1518605368461-1ee711683b8b?q=80&w=2070&auto=format&fit=crop", // Replace with an actual football pic from public/images/
+    image: "https://images.unsplash.com/photo-1518605368461-1ee711683b8b?q=80&w=2070&auto=format&fit=crop", 
     color: "text-blue-500",
     bgIcon: "bg-blue-100",
+    sliderImages: soccerImages // Maps to the soccer folder
   },
   {
     id: 2,
@@ -25,6 +43,7 @@ const programsData = [
     image: "https://images.unsplash.com/photo-1516280440502-85f54316b1f4?q=80&w=2070&auto=format&fit=crop", 
     color: "text-yellow-500",
     bgIcon: "bg-yellow-100",
+    sliderImages: praiseImages // Maps to the praise folder
   },
   {
     id: 3,
@@ -35,6 +54,7 @@ const programsData = [
     image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070&auto=format&fit=crop",
     color: "text-brand-primary",
     bgIcon: "bg-brand-light",
+    sliderImages: evangelismImages // Maps to the evangelism folder
   },
   {
     id: 4,
@@ -45,8 +65,43 @@ const programsData = [
     image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop",
     color: "text-green-500",
     bgIcon: "bg-green-100",
+    sliderImages: fellowshipImages // Maps to the fellowship folder
   }
 ];
+
+// --- CUSTOM CONTINUOUS SLIDESHOW COMPONENT ---
+const ImageSlider = ({ images, fallback }: { images: string[], fallback: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return; 
+    
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); 
+    
+    return () => clearInterval(timer);
+  }, [images]);
+
+  const displayImages = images.length > 0 ? images : [fallback];
+
+  return (
+    <div className="relative z-10 w-full h-[300px] md:h-[400px] rounded-3xl shadow-2xl border-4 border-white overflow-hidden bg-gray-200">
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={currentIndex}
+          src={displayImages[currentIndex]}
+          alt="Ministry Activity"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const Programs = () => {
   return (
@@ -81,32 +136,21 @@ const Programs = () => {
       {/* --- ALTERNATING PROGRAMS LAYOUT --- */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32">
         {programsData.map((program, index) => {
-          // Determine if the image should be on the left or right on desktop
           const isEven = index % 2 === 0;
 
           return (
             <div key={program.id} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-16`}>
               
               {/* Image Side */}
-              <FadeIn 
-                direction={isEven ? 'right' : 'left'} 
-                className="w-full md:w-1/2 relative group"
-              >
-                {/* Decorative background blob */}
+              <FadeIn direction={isEven ? 'right' : 'left'} className="w-full md:w-1/2 relative group">
                 <div className={`absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-yellow-400/20 rounded-3xl transform ${isEven ? 'rotate-3' : '-rotate-3'} group-hover:rotate-0 transition-transform duration-500`}></div>
                 
-                <img 
-                  src={program.image} 
-                  alt={program.title} 
-                  className="relative z-10 w-full h-[300px] md:h-[400px] object-cover rounded-3xl shadow-2xl border-4 border-white"
-                />
+                {/* Cleanly calls the ImageSlider and passes the specific array for this program */}
+                <ImageSlider images={program.sliderImages} fallback={program.image} />
               </FadeIn>
 
               {/* Text Side */}
-              <FadeIn 
-                direction={isEven ? 'left' : 'right'} 
-                className="w-full md:w-1/2 flex flex-col justify-center"
-              >
+              <FadeIn direction={isEven ? 'left' : 'right'} className="w-full md:w-1/2 flex flex-col justify-center">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${program.bgIcon} ${program.color} shadow-sm`}>
                   {program.icon}
                 </div>
@@ -118,7 +162,6 @@ const Programs = () => {
                   {program.description}
                 </p>
 
-                {/* Subtle Action Link */}
                 <button className="flex items-center text-brand-primary font-bold hover:text-yellow-500 transition-colors w-max group">
                   Join this department <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -132,7 +175,6 @@ const Programs = () => {
       {/* --- BOTTOM CALL TO ACTION --- */}
       <div className="max-w-4xl mx-auto px-4 mt-32">
         <FadeIn direction="up" className="bg-brand-primary rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl border border-yellow-500/30">
-            {/* Ambient glows */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/20 rounded-full blur-[80px]"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-[80px]"></div>
             

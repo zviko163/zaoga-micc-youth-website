@@ -34,7 +34,7 @@ const Hero = () => {
         {/* Delay 0.5s */}
         <FadeIn delay={0.5} direction="up">
           <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto font-light">
-            A generation of young people on fire for God, rooted in the Word, and ready to impact our community.
+            A generation of young people on fire for God, rooted in the Word of God, and ready to serve.
           </p>
         </FadeIn>
         
