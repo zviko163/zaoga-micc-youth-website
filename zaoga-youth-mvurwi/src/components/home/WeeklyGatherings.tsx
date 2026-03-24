@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Clock, MapPin, Phone, ArrowRight } from 'lucide-react';
+// import { motion } from 'framer-motion';
+import { Clock, MapPin } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
 
 const WeeklyGatherings = () => {
