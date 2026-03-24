@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar as CalendarIcon, MapPin, CheckCircle2, ArrowRight, Star } from 'lucide-react';
+import { Calendar as CalendarIcon, MapPin, CheckCircle2, Star } from 'lucide-react';
 import { FadeIn } from '../components/ui/FadeIn';
 
 // --- 2026 ZAOGA FIFMI YOUTH CALENDAR DATA ---
