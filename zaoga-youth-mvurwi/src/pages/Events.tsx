@@ -56,7 +56,7 @@ const completedEvents = [
     id: 5,
     date: "January 1 - 10, 2026",
     title: "Ten Days of Prayer & Fasting",
-    description: "We kicked off the year seeking God's face, laying a strong spiritual foundation for 2026."
+    description: "We kicked off the year seeking God's face, laying a strong spiritual foundation for the year 2026."
   },
   {
     id: 6,
