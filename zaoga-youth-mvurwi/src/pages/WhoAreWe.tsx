@@ -13,7 +13,7 @@ const advisers = [
 
 const executiveBoard = [
   { role: "Chairman", name: "Brother Carlton", image: "/images/board_checks.jpeg" },
-  { role: "Vice Chair", name: "Sister Joane", image: "/images/board_vice_chair.jpeg" },
+  { role: "Vice Chair", name: "Sister Joane", image: "/images/board_vice_chairlady.jpeg" },
   { role: "Secretary", name: "Sister Getrude", image: "/images/board_getty.jpeg" }
 ];
 
