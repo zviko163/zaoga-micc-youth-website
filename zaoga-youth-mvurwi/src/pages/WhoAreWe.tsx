@@ -4,7 +4,7 @@ import { FadeIn } from '../components/ui/FadeIn';
 
 // --- LEADERSHIP DATA ---
 const pastors = [
-  { role: "District Pastors", name: "Pastor & Mrs. Muzereni", image: "/images/pastors.jpg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
+  { role: "District Pastors", name: "Pastor & Mrs. Muzereni", image: "/images/pastors.jpeg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
 ];
 
 const advisers = [
@@ -13,14 +13,14 @@ const advisers = [
 
 const executiveBoard = [
   { role: "Chairman", name: "Brother Carlton", image: "/images/board_checks.jpeg" },
-  { role: "Vice Chairman", name: "Brother [Name]", image: "/images/vice-chair.jpeg" },
+  { role: "Vice Chairman", name: "Brother Joane", image: "/images/board_vice_chair.jpeg" },
   { role: "Secretary", name: "Sister Getrude", image: "/images/board_getty.jpeg" }
 ];
 
 const committee = [
   { role: "Committee Member", name: "Brother Sylvester", image: "/images/board_committee1.jpeg" },
-  { role: "Committee Member", name: "Sister [Name]", image: "/images/board_committee2.jpeg" },
-  { role: "Committee Member", name: "Brother [Name]", image: "/images/board_committee3.jpeg" }
+  { role: "Committee Member", name: "Sister Ropafadzo", image: "/images/board_committee2.jpeg" },
+  { role: "Committee Member", name: "Brother Justice", image: "/images/board_committee3.jpeg" }
 ];
 
 const WhoWeAre = () => {
