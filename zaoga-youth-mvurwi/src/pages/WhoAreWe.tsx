@@ -8,7 +8,7 @@ const pastors = [
 ];
 
 const advisers = [
-  { role: "Youth Advisers", name: "Mr. & Mrs. [Name]", image: "/images/advisers.jpg", bio: "Mentoring and guiding the youth board in executing the vision." }
+  { role: "Youth Advisers", name: "Mr. & Mrs. Shikisha", image: "/images/advisers.jpeg", bio: "Mentoring and guiding the youth board in executing the vision." }
 ];
 
 const executiveBoard = [
@@ -18,7 +18,7 @@ const executiveBoard = [
 ];
 
 const committee = [
-  { role: "Committee Member", name: "Brother [Name]", image: "/images/board_committee1.jpeg" },
+  { role: "Committee Member", name: "Brother Sylvester", image: "/images/board_committee1.jpeg" },
   { role: "Committee Member", name: "Sister [Name]", image: "/images/board_committee2.jpeg" },
   { role: "Committee Member", name: "Brother [Name]", image: "/images/board_committee3.jpeg" }
 ];
