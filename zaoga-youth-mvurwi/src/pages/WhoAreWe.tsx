@@ -20,7 +20,8 @@ const executiveBoard = [
 const committee = [
   { role: "Committee Member", name: "Brother Sylvester", image: "/images/board_committee1.jpeg" },
   { role: "Committee Member", name: "Sister Ropafadzo", image: "/images/board_committee2.jpeg" },
-  { role: "Committee Member", name: "Brother Justice", image: "/images/board_committee3.jpeg" }
+  { role: "Committee Member", name: "Brother Justice", image: "/images/board_committee3.jpeg" },
+  { role: "Committee Member", name: "Brother Elsha", image: "/images/board_committee4.jpeg" }
 ];
 
 const WhoWeAre = () => {
