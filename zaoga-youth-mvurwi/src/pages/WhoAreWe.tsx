@@ -4,11 +4,11 @@ import { FadeIn } from '../components/ui/FadeIn';
 
 // --- LEADERSHIP DATA ---
 const pastors = [
-  { role: "District Pastors", name: "Pastor & Mrs. Muzereni", image: "/images/pastors.jpeg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
+  { role: "District Pastors", name: "DPs B & S. Muzereni", image: "/images/pastors.jpeg", bio: "Spiritual parents overseeing the entire Mvurwi District." }
 ];
 
 const advisers = [
-  { role: "Youth Advisers", name: "Mr. & Mrs. Shikisha", image: "/images/advisers.jpeg", bio: "Mentoring and guiding the youth board in executing the vision." }
+  { role: "Youth Advisers", name: "Elders P & J. Shikisha", image: "/images/advisers.jpeg", bio: "Mentoring and guiding the youth board in executing the vision." }
 ];
 
 const executiveBoard = [
