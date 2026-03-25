@@ -12,15 +12,15 @@ const advisers = [
 ];
 
 const executiveBoard = [
-  { role: "Chairman", name: "Brother [Name]", image: "/images/chairman.jpg" },
-  { role: "Vice Chairman", name: "Brother [Name]", image: "/images/vice-chair.jpg" },
-  { role: "Secretary", name: "Sister [Name]", image: "/images/secretary.jpg" }
+  { role: "Chairman", name: "Brother Carlton", image: "/images/board_checks.jpeg" },
+  { role: "Vice Chairman", name: "Brother [Name]", image: "/images/vice-chair.jpeg" },
+  { role: "Secretary", name: "Sister Getrude", image: "/images/board_getty.jpeg" }
 ];
 
 const committee = [
-  { role: "Committee Member", name: "Brother [Name]", image: "/images/committee1.jpg" },
-  { role: "Committee Member", name: "Sister [Name]", image: "/images/committee2.jpg" },
-  { role: "Committee Member", name: "Brother [Name]", image: "/images/committee3.jpg" }
+  { role: "Committee Member", name: "Brother [Name]", image: "/images/board_committee1.jpeg" },
+  { role: "Committee Member", name: "Sister [Name]", image: "/images/board_committee2.jpeg" },
+  { role: "Committee Member", name: "Brother [Name]", image: "/images/board_committee3.jpeg" }
 ];
 
 const WhoWeAre = () => {
